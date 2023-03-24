@@ -123,3 +123,106 @@
 > - 优点
 >   - 减少了dom操作，减少了回流与重绘
 >   - 保证性能的下限，虽说性能不是最佳，但是它具备局部更新的能力，所以大部分时候还是比正常的DOM性能高很多的
+
+#### 17.说一下vue双向绑定？
+
+> vue.js是采用数据劫持结合发布者-订阅者模式德方式，通过Object.definePropoty()来劫持各个属性的getter和setter，在数据变动时发布消息给订阅者，触发相应的监听回调。·
+
+#### 18.说一下为什么vue中有时候数组会更新页面，有时候不更新？
+
+> 因为在vue内部只能监测数组顺序/位置的改变/数组长度的改变，但是值被重新赋予监测不到变更, 可以用 Vue.set() / vm.$set()。
+>
+> 以下方法会触发数组改变，v-for会监测并更新到页面
+>
+> - push()
+> - pop()
+> - shift()
+> - unshift()
+> - splice()
+> - sort()
+> - reverse()
+
+#### 19.说一下keep-alive？
+
+> keep-alive是一个内置组件，它的功能是在多个组件间动态切换时缓存被移除的组件实例。（vue文档原话）
+>
+> `<KeepAlive>` 默认会缓存内部的所有组件实例，但我们可以通过 `include` 和 `exclude` prop 来定制该行为。这两个 prop 的值都可以是一个以英文逗号分隔的字符串、一个正则表达式，或是包含这两种类型的一个数组：
+>
+> ```js
+> <!-- 以英文逗号分隔的字符串 -->
+> <KeepAlive include="a,b">
+>   <component :is="view" />
+> </KeepAlive>
+> 
+> <!-- 正则表达式 (需使用 `v-bind`) -->
+> <KeepAlive :include="/a|b/">
+>   <component :is="view" />
+> </KeepAlive>
+> 
+> <!-- 数组 (需使用 `v-bind`) -->
+> <KeepAlive :include="['a', 'b']">
+>   <component :is="view" />
+> </KeepAlive>
+> 
+> ```
+>
+> 我们可以通过传入 `max` prop 来限制可被缓存的最大组件实例数。`<KeepAlive>` 的行为在指定了 `max` 后类似一个 [LRU 缓存](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU))：如果缓存的实例数量即将超过指定的那个最大数量，则最久没有被访问的缓存实例将被销毁，以便为新的实例腾出空间。
+>
+> | 名称        | 描述                                                         |
+> | ----------- | ------------------------------------------------------------ |
+> | activated   | 在 keep-alive 组件激活时调用， 该钩子函数在服务器端渲染期间不被调用。 |
+> | deactivated | 在 keep-alive 组件停用时调用，该钩子在服务器端渲染期间不被调用。 |
+
+#### 20.说一下导航钩子有哪些？他们有什么参数？
+
+> 导航钩子又称为导航守卫，又分为全局钩子、单个路由独享钩子和组件级钩子
+>
+> 全局钩子有：beforeEach、beforeResolve、afterEach
+>
+> 单个路由独享钩子：beforeEnter
+>
+> 组件级钩子：beforeRouteEnter、beforeRouteUpdate、beforeRouteLeave
+>
+> 它们有以下参数
+>
+> - to：即将要进入的目标路由对象。
+> - from：当前导航正要离开的路由。
+> - 一定要用这个函数才能到达下一个路由，如果不用就会遭到拦截。
+
+#### 21. 说一下vue-router的模式？
+
+> hash模式
+>
+> - 监听hashchange事件实现前端路由，利用url中的hash来模拟一个hash，以保证url改变时，页面不会重新加载。 
+>
+> history模式
+>
+> - 利用pushstate和replacestate来将url替换但不刷新，但是有一个致命点就是，一旦刷新的话，就会可能404，因为没有当前的真正路径，要想解决这一问题需要后端配合，将不存在的路径重定向到入口文件。
+
+#### 22.如何封装一个组件？
+
+> 使用vue.extend()创建一个组件
+>
+> 使用vue.components()注册组件
+>
+> 子组件需要数据时可以通过props进行接收，子组件将数据修改好后若想把数据传给父组件，可以使用emit方法
+
+#### 23.说一下vue页面传参？
+
+> - query地址栏显示，刷新不丢失，类似get
+>
+> - params地址栏不显示，隐藏传参，刷新丢失类似post
+> - 动态传参，地址栏显示，刷新不丢失
+>
+> **注意：**
+>
+> - 传参是this.$router，接收参数是this.$route 
+> - params搭配的是组件的name名，query搭配的是组件的path
+> - 接收数据必须在页面加载完成后，也就是在**mounted**接收，而不是created。
+
+#### 24. 说一下vue中ref的作用?
+
+> -作用一（基本用法）:本页面获取dom元素
+> 作用二：获取子组件中的data
+> 作用三：调用子组件中的方法
+> 作用四：子组件调用父组件方法

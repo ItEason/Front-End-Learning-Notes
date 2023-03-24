@@ -29,7 +29,7 @@ console.log(Object.prototype.toString.call(obj)); // [object Object]
 > 1. 存储位置：cookie由服务端写入，而localStorage、sessionStorage由前端写入
 > 2. 声明周期：cookie在服务器端写入后的时候就设置好了，localStorage写入就一直存在，除非手动清除，sessionStorage在页面关闭时就自动清除
 > 3. 存储大小：cookie的存储空间大概4KB，localStorage、sessionStorage的存储空间比较大，大概在5M
-> 4. 数据共享：Cookie、sessionStorage、 localStorage数据共享都遵循同源原则，sessionStorage还限制必须是同一个页面。在前端给后端发送请求的时候会自动携带Cookie中的数据，但是sessionStorage、 localStorage不会
+> 4. 数据共享：Cookie、sessionStorage、 localStorage数据共享都遵循同源原则，sessionStorage还限制必须是同一个页面。在前端给后端发送https请求的时候会自动携带Cookie中的数据，但是sessionStorage、 localStorage不会
 > 5. 应用场景：cookie用于存储验证信息SessionID或者token，localStorage常用于存储不易变动的数据，减轻服务器的压力，sessionStorage可以用来检测用户是否是刷新进入页面，如音乐播放器恢复播放进度条的功能。
 >
 > **注意**：cookie只用在https协议中才会传输，在http协议是不会传输的。
@@ -104,7 +104,7 @@ outer(); // 返回结果为10；
 > 箭头函数是ES6规范引入的，与普通function函数相比，箭头函数写法更简洁。箭头函数的特点是：
 >
 > - this指向是静态的，this是通过继承外部函数环境中的变量获取的，call、bind、apply都无法改变其this的指向
-> - 没有Constructor方法，因此不能做构造函数，不能使用new命令，否则会报错
+> - 没有Constructor方法，不能做构造函数，不能使用new命令，否则会报错
 > - 不能使用arguments，可以使用..rest进行参数的接收
 > - 没有prototype原型，不能使用yield关键字
 
@@ -144,7 +144,7 @@ outer(); // 返回结果为10；
 >
 > 垃圾回收机制算法：
 >
-> - 引用技术法：
+> - 引用计数法：
 >   1. 跟踪记录被`引用的次数`
 >   2. 如果被引用了一次，那么就记录次数1，多次引用会`累加++`
 >   3. 如果减少一个引用就`减1--`
@@ -153,7 +153,7 @@ outer(); // 返回结果为10；
 #### 16.说一下数组去重的方法？
 
 > 1. filter + indexOf
-> 2. 双重循环
+> 2. 双重for循环
 > 3. includes
 > 4. Set集合
 
@@ -161,7 +161,7 @@ outer(); // 返回结果为10；
 
 > ==在允许强制转换的条件下检查值的等价性，===在不允许强制转换的条件下检查值的等价性。
 >
-> ==当两边的值相同时判断即为true，===当且仅当两边的类型和值相同时判断才为true
+> ==当两边的值相同时判断即为true，===当且仅当两边的数据类型和值相同时判断才为true
 >
 > 例如: 55 == '55' (true) 55 === '55' (false)
 
@@ -176,6 +176,8 @@ outer(); // 返回结果为10；
 
 #### 19.说一下原型和原型链？
 
+> 原型分为显式原型和隐式原型
+>
 > 所有的函数都有prototype属性（原型），即原型是函数的一个属性
 >
 > 所有的对象身上都有__proto__属性
@@ -223,3 +225,10 @@ outer(); // 返回结果为10；
 > - 先清空微任务队列
 > - 再取一个宏任务，执行，再清空微任务队列
 > - 依次循环
+
+#### 24.说一下this指向？
+
+> - 全局this非严格模式下指向window系统，严格模式下指向undefined
+> - 对象的属性方法中的this 指向对象本身
+> - apply、call、bind 可以变更 this 指向为第一个传参
+> - 箭头函数中的this指向它的父级作用域，它自身不存在this

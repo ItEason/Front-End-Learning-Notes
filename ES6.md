@@ -1,6 +1,6 @@
 #### let变量
 
-1.变量不能重复  
+1.变量名不能重复  
 
 ```javascript
 let name = 'zs'; 
@@ -64,7 +64,7 @@ let name = 'zs'
 
 #### const变量
 
-1. 一定要赋初始值
+1. 不能重复定义且一定要赋初始值
 
    ```javascript
    const name;
@@ -144,7 +144,7 @@ const str = `<ul>
 
 #### 箭头函数
 
-1. this是静态的，指向的是定义时所在的对象，而不是使用时所在的对象；
+1. this是静态的，this通过继承外部函数环境中的变量获取，不能通过apply、bind、call方法修改指向
 
 ```javascript
 		function getName1() {
@@ -164,7 +164,7 @@ const str = `<ul>
 		getName2.call({name: 'eason'}); //global
 ```
 
-2.不能使用new命令，不能够用作构造函数
+2.不能使用new命令，没有constructor方法，不能够用作构造函数
 
 ```javascript
 		let person = (name, age) => {
@@ -195,7 +195,7 @@ const str = `<ul>
         fn('eason', 21, 'male'); // ['eason', 21, 'male']
 ```
 
-4. 不能使用 yield 命令
+4. 不能使用 yield 命令，没有prototype原型
 
    箭头函数的应用
 
