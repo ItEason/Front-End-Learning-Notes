@@ -18,23 +18,23 @@
 > 答：（1）id选择器  #container
 >
 > 		（2）类名选择器 .wrraper-box
-> 																																
+> 																																			
 > 		（3）标签选择器 div / p
-> 																																
+> 																																			
 > 		（4）子选择器 div > p
-> 																																
+> 																																			
 > 		（5）后代选择器 div p / #container p / .wrraper-box p	
-> 																																
+> 																																			
 > 		（6）通配符选择器 * 
-> 																																
+> 																																			
 > 		（7）伪类选择器  p:nth-child(1) / p:nth-child(2)
-> 																																
+> 																																			
 > 		（8）伪元素选择器 div::before p::after
-> 																																
+> 																																			
 > 		（9）兄弟选择器 span~p
-> 																																
+> 																																			
 > 		（10）相邻选择器 span+p
-> 																																
+> 																																			
 > 		（11）属性选择器 input[type]
 >
 > **注意：** 兄弟选择器：找到指定的元素后面的所有满足条件的兄弟元素
@@ -69,9 +69,9 @@
 > 答：内联选择器 1，0，0，0
 >
 > 		ID选择器 0，1，0，0
-> 																																
+> 																																			
 > 		类名选择器/属性选择器/伪类选择器 0，0，1，0
-> 																																
+> 																																			
 > 		标签选择器/伪元素选择器 0，0，0，1
 >
 > 其中！important!important（权重），它没有特殊性值，但它的优先级是最高的，为了方便记忆，可以认为它的特殊性值为1,0,0,0,0。
@@ -303,9 +303,9 @@
 
 > - px：物理像素，绝对单位
 > - em：相对与自身字体大小，如果自身没有设置字体大小会相对于父级字体大小，倘若父级也没有则继续向上寻找，直到找到html为止
-> - rem：相对于html的字体大小，相对单位
-> - vw：相对于屏幕宽度的大小，相对单位
-> - vh：相对于屏幕高度的大小，相对单位
+> - rem：相对于html的font-size字体大小，相对单位
+> - vw：相对于视窗宽度的大小，相对单位
+> - vh：相对于视窗高度的大小，相对单位
 >
 > vw和vh也常用来做移动端适配。
 
@@ -371,36 +371,9 @@
 >
 > 常见的行内元素：a、img、span、li、em、strong...等
 
-### HTML
+#### 26.说一下隐藏元素的方法？
 
-#### 1.说一下HTML语义化的好处？
-
-> -  提高代码的可阅读性
-> - 有利于提高SEO-搜索引擎优化（Search Engine Optimization）
-> - 利于页面内容结构化
->
-> 常见的语义化标签：main、footer、header、aside、input...
-
-#### 2.如何获取body和html对象？
-
-> 获取body对象：document.body;
->
-> 获取HTML对象：document.documentElement;
-
-#### 3. 说一下innerHTML和innerText的区别？
-
-> 相同点：都可以对元素的内容进行读写操作。
->
-> element.innerText：从起始位置到最终位置的内容，但去除html标签、空格、换行
->
-> element.innerHTML：从起始位置到最终位置的全部内容，包括html标签、空格、换行
-
-#### 4.说一下H5自定义属性data-？
-
-> 在html5中我们可以使用data-xxx设置元素的自定义属性，在javascript中使用dataset.xxx的形式获取元素的自定义属性即可。
-
-#### 5.说一下回流和重绘？
-
-> 
-
-# 持续更新中...
+> - display：none （元素在页面消失）
+> - opacity： 0 （设置元素透明度为0，元素不可见，存在在页面中）
+> - visibility：hidden （元素还存在于页面）
+> - position：absolute  z-index：999

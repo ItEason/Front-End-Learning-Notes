@@ -1,6 +1,6 @@
 ### javaScript
 
-#### 1.说一下javaScript数据类型？基本数据类型和引用数据类型的区别是什么？
+#### 1.说一下javaScript数据类型？基本数据类型和引用数据类型的区别是什么？（内置对象）
 
 > javascript数据类型分为基本数据类型和引用数据类型，基本数据类型有7种，分别是Number、String、Undefined、Null、Boolean、Symbol、BigInt；引用数据类型有Object、Array、Date、Functiond，Rexp等。
 >
@@ -232,3 +232,7 @@ outer(); // 返回结果为10；
 > - 对象的属性方法中的this 指向对象本身
 > - apply、call、bind 可以变更 this 指向为第一个传参
 > - 箭头函数中的this指向它的父级作用域，它自身不存在this
+
+#### 25.说一下js的组成部分？
+
+> ECMAScript、文档对象模型、浏览器对象模型
