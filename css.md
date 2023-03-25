@@ -18,23 +18,23 @@
 > 答：（1）id选择器  #container
 >
 > 		（2）类名选择器 .wrraper-box
-> 																																			
+> 																																				
 > 		（3）标签选择器 div / p
-> 																																			
+> 																																				
 > 		（4）子选择器 div > p
-> 																																			
+> 																																				
 > 		（5）后代选择器 div p / #container p / .wrraper-box p	
-> 																																			
+> 																																				
 > 		（6）通配符选择器 * 
-> 																																			
+> 																																				
 > 		（7）伪类选择器  p:nth-child(1) / p:nth-child(2)
-> 																																			
+> 																																				
 > 		（8）伪元素选择器 div::before p::after
-> 																																			
+> 																																				
 > 		（9）兄弟选择器 span~p
-> 																																			
+> 																																				
 > 		（10）相邻选择器 span+p
-> 																																			
+> 																																				
 > 		（11）属性选择器 input[type]
 >
 > **注意：** 兄弟选择器：找到指定的元素后面的所有满足条件的兄弟元素
@@ -69,9 +69,9 @@
 > 答：内联选择器 1，0，0，0
 >
 > 		ID选择器 0，1，0，0
-> 																																			
+> 																																				
 > 		类名选择器/属性选择器/伪类选择器 0，0，1，0
-> 																																			
+> 																																				
 > 		标签选择器/伪元素选择器 0，0，0，1
 >
 > 其中！important!important（权重），它没有特殊性值，但它的优先级是最高的，为了方便记忆，可以认为它的特殊性值为1,0,0,0,0。
@@ -148,11 +148,15 @@
 >
 > inherit：	规定应该从父元素继承display属性的值。
 
-#### 11.position 的值 relative 和 absolute 定位原点是？
+#### 11.position 有哪些属性？
 
->relative定位的元素，是相对于元素本身所在文档流中的位置进行定位的。
+>static：静态定位，默认值，元素出现在正常的文档流中。
 >
->absolute定位的元素，是相对于它的第一个position值不为static的祖先元素的padding box来进行定位的。
+>fixed：固定定位，相对了浏览器窗口进行定位，脱离文档流。
+>
+>relative：相对对位，是相对于元素本身所在文档流中的位置进行定位的。
+>
+>absolute：绝对定位，脱离文档流，是相对于它的第一个position值不为static的祖先元素的padding box来进行定位的。
 >我们可以这样来理解，我们首先需要找到绝对定位元素的一个position的值不为static的祖先元素，然后相对于这个祖先元素的padding box来定位，也就是说在计算定位距离的时候，padding的值也要算进去。
 >
 >**注意：**将元素的position设置为relative后，位移量移动的区域还占据着
@@ -200,6 +204,7 @@
 > - position属性不为static和relative
 > - display属性为table-cell，inline-block，table-caption
 > - float属性不为none
+> - 弹性元素（display为flex...）
 >
 > BFC解决了什么问题？
 >
