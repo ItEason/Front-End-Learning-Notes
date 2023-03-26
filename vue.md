@@ -237,5 +237,33 @@
 >
 > 3.webpack的require.ensure()
 
+#### 26.说一下如何解决vuex刷新数据丢失的方案？
 
+> 1. 把数据直接存储到浏览器缓存里（sessionStorage、localStorage、cookie）
+> 2. 页面刷新时，再次请求数据，达到数据动态更新的方法
+>    1. 监听浏览器刷新的事件，在刷新前将数据保存到sessionStorage里，刷新后请求数据，请求到了用vuex，没有请求到就用sessionStorage里的。
 
+#### 27.说一下对vuex的理解？
+
+> vuex：集中式状态管理库
+>
+> 使用vuex的情景：
+>
+> - 多个组件依赖同一个状态
+> - 不同组件的行为需要该改变的统一状态
+>
+> 属性：
+>
+> - state：用于定义数据变量，存放公共数据；
+> - mutations：用于定义修改state数据的方法，同步操作；
+> - actions：用于操作mutations，可进行异步操作，调用后端接口等；
+> - getters：state的computed属性，动态获取state数据；
+> - modules：模块化，给store划分模块，减少代码臃肿，方便维护代码；
+>
+> vuex中action和mutation有什么相同点？
+>
+> 第二个参数都可以接受外部提交时传来的参数。
+
+#### 28.vue中优缺点？
+
+> 

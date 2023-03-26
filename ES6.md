@@ -653,7 +653,15 @@ console.log(name);
         fn()
 ```
 
+#### export和export default的区别？
 
+> 相同点：都可以导出变量、函数、文件、模块等
+>
+> 不同点：
+>
+> - 在一个js文件中可以存在多个export，但是只能存在一个export default
+> - 通过export方式导出，在导入时需要{}按需导入。而通过export default方式导出则不需要，可以起任意别名导入
+> - export default与export不要同时使用
 
 # 持续更新中...
 
