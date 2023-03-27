@@ -111,4 +111,7 @@
 > 3. link可以同时引入多个CSS文件，而@import只能引入一个CSS文件。
 > 4. link在页面加载时同时加载CSS文件，而@import在页面加载完毕后再加载CSS文件，可能会导致页面闪烁。
 > 5. link可以通过rel属性指定CSS文件的关系，如stylesheet、alternate stylesheet等；而@import没有这个属性。
->
+
+#### 11.说一下什么是事件？
+
+> 事件是指用户在浏览器中的各种操作，如点击、鼠标启动、键盘输入等。JavaScript可以通过监听这些事件，响应用户的操作，从而实现交互式的网页效果。
