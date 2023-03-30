@@ -114,7 +114,7 @@
 
 #### 15.说一下:key的理解？
 
-> :key是为 Vue 中 vnode 的唯一标记，因为vue是虚拟DOM，更新DOM时用diff算法对节点进行一一对比，当新节点和旧节点的：key值相同时会进行复用，没有设置key值时会对页面的节点进行全部的渲染，性能消耗较大，vue中key值相等于一个性能优化的处理。key值的设置不能是元素的index
+> :key是 Vue 中 vnode 的唯一标记，因为vue是虚拟DOM，更新DOM时用diff算法对节点进行一一对比，当新节点和旧节点的:key值相同时会进行复用，没有设置key值时会对页面的节点进行全部的渲染，性能消耗较大，vue中key值相当于一个性能优化的处理。key值的设置不能是元素的index
 
 #### 16.说一下虚拟DOM的优缺点？
 
@@ -144,9 +144,9 @@
 
 #### 19.说一下keep-alive？
 
-> keep-alive是一个内置组件，它的功能是在多个组件间动态切换时缓存被移除的组件实例。（vue文档原话）
+> 😁keep-alive是一个内置组件，它的功能是在多个组件间动态切换时缓存被移除的组件实例。（vue文档原话）
 >
-> `<KeepAlive>` 默认会缓存内部的所有组件实例，但我们可以通过 `include` 和 `exclude` prop 来定制该行为。这两个 prop 的值都可以是一个以英文逗号分隔的字符串、一个正则表达式，或是包含这两种类型的一个数组：
+> `<KeepAlive>` 默认会缓存内部的所有组件实例，但我们可以通过 `include` 和 `exclude` prop 来定制该行为。😁这两个 prop 的值都可以是一个以英文逗号分隔的字符串、一个正则表达式，或是包含这两种类型的一个数组：
 >
 > ```js
 > <!-- 以英文逗号分隔的字符串 -->
@@ -163,12 +163,11 @@
 > <KeepAlive :include="['a', 'b']">
 >   <component :is="view" />
 > </KeepAlive>
-> 
 > ```
->
-> 我们可以通过传入 `max` prop 来限制可被缓存的最大组件实例数。`<KeepAlive>` 的行为在指定了 `max` 后类似一个 [LRU 缓存](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU))：如果缓存的实例数量即将超过指定的那个最大数量，则最久没有被访问的缓存实例将被销毁，以便为新的实例腾出空间。
->
-> | 名称        | 描述                                                         |
+> 
+>我们可以通过传入 `max` prop 来限制可被缓存的最大组件实例数。`<KeepAlive>` 的行为在指定了 `max` 后类似一个 [LRU 缓存](https://en.wikipedia.org/wiki/Cache_replacement_policies#Least_recently_used_(LRU))：如果缓存的实例数量即将超过指定的那个最大数量，则最久没有被访问的缓存实例将被销毁，以便为新的实例腾出空间。
+> 
+>| 名称        | 描述                                                         |
 > | ----------- | ------------------------------------------------------------ |
 > | activated   | 在 keep-alive 组件激活时调用， 该钩子函数在服务器端渲染期间不被调用。 |
 > | deactivated | 在 keep-alive 组件停用时调用，该钩子在服务器端渲染期间不被调用。 |
@@ -280,7 +279,7 @@
 >
 > - 不利于seo
 > - 可扩展性稍差
-> - 生态环境差
+> - 生态环境差（相对于其他两个框架而言react、angular）
 
 #### 29.说一下vue-loader是什么？它的用途是什么？
 
@@ -289,3 +288,11 @@
 > 用途：js可以写es6、style样式
 >
 > 根据vue-cli脚手架规范，一个js文件，一个CSS文件。
+
+### Vue3x
+
+#### 1.setup中return的一定只能是一个对象吗？
+
+> setup可以return一个对象，也可以return一个渲染函数
+>
+> - return () => h('h2', 'Hello Vue3')

@@ -18,23 +18,23 @@
 > 答：（1）id选择器  #container
 >
 > 		（2）类名选择器 .wrraper-box
-> 																																				
+> 																																						
 > 		（3）标签选择器 div / p
-> 																																				
+> 																																						
 > 		（4）子选择器 div > p
-> 																																				
+> 																																						
 > 		（5）后代选择器 div p / #container p / .wrraper-box p	
-> 																																				
+> 																																						
 > 		（6）通配符选择器 * 
-> 																																				
+> 																																						
 > 		（7）伪类选择器  p:nth-child(1) / p:nth-child(2)
-> 																																				
+> 																																						
 > 		（8）伪元素选择器 div::before p::after
-> 																																				
+> 																																						
 > 		（9）兄弟选择器 span~p
-> 																																				
+> 																																						
 > 		（10）相邻选择器 span+p
-> 																																				
+> 																																						
 > 		（11）属性选择器 input[type]
 >
 > **注意：** 兄弟选择器：找到指定的元素后面的所有满足条件的兄弟元素
@@ -59,6 +59,8 @@
 > 列表属性：list-style，list-style-image，list-style-type，list-style-position
 >
 > 元素可见性：visibility
+>
+> border只有border-collapse才能继承
 
 #### 5.CSS选择器优先级？
 
@@ -69,9 +71,9 @@
 > 答：内联选择器 1，0，0，0
 >
 > 		ID选择器 0，1，0，0
-> 																																				
+> 																																						
 > 		类名选择器/属性选择器/伪类选择器 0，0，1，0
-> 																																				
+> 																																						
 > 		标签选择器/伪元素选择器 0，0，0，1
 >
 > 其中！important!important（权重），它没有特殊性值，但它的优先级是最高的，为了方便记忆，可以认为它的特殊性值为1,0,0,0,0。
@@ -364,21 +366,31 @@
 </style>
 ```
 
-#### 25.块元素和行内元素的区别？常见的块元素和行内元素有哪些？
-
-> 块元素：独占一行，宽度自动填满父元素宽度。能够达到最大宽度且前后各有一个换行。可以包含行内元素和块元素。可以通过css改变宽高。
->
-> 行内元素：不会独占一行，其宽度随元素的内容而变化，相邻的行内元素会排列到同一行，直到排列不下才换行。
->
-> 行内元素设置：width、height、padding-top、padding-bottom、margin-top、margin-bottom无效。
->
-> 常见的块级元素：div、p、h、ul、li、form...等
->
-> 常见的行内元素：a、img、span、li、em、strong...等
-
-#### 26.说一下隐藏元素的方法？
+#### 25.说一下隐藏元素的方法？
 
 > - display：none （元素在页面消失）
 > - opacity： 0 （设置元素透明度为0，元素不可见，存在在页面中）
 > - visibility：hidden （元素还存在于页面）
 > - position：absolute  z-index：999
+> - 
+
+#### 26.说一下link和@import的区别？
+
+> 1. link是HTML标签，用于在HTML文档中引入外部CSS文件；而@import是CSS规则，用于在CSS文件中引入其他CSS文件。
+> 2. link可以在HTML文档的head部分或body部分引入CSS文件，而@import只能在CSS文件中使用。
+> 3. link可以同时引入多个CSS文件，而@import只能引入一个CSS文件。
+> 4. link在页面加载时同时加载CSS文件，而@import在页面加载完毕后再加载CSS文件，可能会导致页面闪烁。
+> 5. link可以通过rel属性指定CSS文件的关系，如stylesheet、alternate stylesheet等；而@import没有这个属性。
+
+#### 27.说一下引入样式表CSS的方式有几种？分别是什么？优先级是什么？
+
+> 在HTML中引入css样式通常有4种方式。
+>
+> - 内联样式（行内样式）
+> - 嵌入式
+> - 外部引入（linking）
+> - 导入样式@import
+>
+> 优先级：就近原则
+>
+> 内联样式（行内样式）>	嵌入式	>	外部样式	> 	导入样式

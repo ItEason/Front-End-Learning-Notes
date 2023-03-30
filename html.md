@@ -45,7 +45,7 @@
 >
 > **重绘：**
 >
-> 当页面元素样式改变不影响元素在文档流中的位置时（background-color，border-color，visibility），浏览器只会将新样式赋予元素并进行重新绘制操作。
+> 当页面元素样式改变不影响元素在文档流中的位置时（background-color，border-color，visibility），浏览器只会将新样式赋予元素并进行重新绘制的过程成为重绘。
 >
 > -  color、background 相关属性：background-color、background-image 等
 > -  outline 相关属性：outline-color、outline-width 、text-decoration
@@ -62,7 +62,7 @@
 > 2. rem布局
 > 3. 媒体查询@media screen
 > 4. flex布局
-> 5. vh和vw
+> 5. vh和vw布局
 
 #### 7.说一下单页面和多页面的优缺点？
 
@@ -82,6 +82,8 @@
 
 #### 8.如何解决单页面首屏加载慢问题？
 
+> 进行相应的性能优化操作，如：
+>
 > - 路由懒加载
 > - 代码压缩
 > - CDN加速
@@ -104,14 +106,87 @@
 >
 > 新增获取用户地理位置定位API：Geolocation。
 
-#### 10.说一下link和@import的区别？
 
-> 1. link是HTML标签，用于在HTML文档中引入外部CSS文件；而@import是CSS规则，用于在CSS文件中引入其他CSS文件。
-> 2. link可以在HTML文档的head部分或body部分引入CSS文件，而@import只能在CSS文件中使用。
-> 3. link可以同时引入多个CSS文件，而@import只能引入一个CSS文件。
-> 4. link在页面加载时同时加载CSS文件，而@import在页面加载完毕后再加载CSS文件，可能会导致页面闪烁。
-> 5. link可以通过rel属性指定CSS文件的关系，如stylesheet、alternate stylesheet等；而@import没有这个属性。
-
-#### 11.说一下什么是事件？
+#### 10.说一下什么是事件？
 
 > 事件是指用户在浏览器中的各种操作，如点击、鼠标启动、键盘输入等。JavaScript可以通过监听这些事件，响应用户的操作，从而实现交互式的网页效果。
+
+#### 11.块元素和行内元素的区别？常见的块元素和行内元素有哪些？
+
+> 块元素：独占一行，宽度自动填满父元素宽度。能够达到最大宽度且前后各有一个换行。可以包含行内元素和块元素。可以通过css改变宽高。
+>
+> 行内元素：不会独占一行，其宽度随元素的内容而变化，相邻的行内元素会排列到同一行，直到排列不下才换行，设置margin上下无效，左右有效，padding有效。
+>
+> 行内元素设置：width、height、padding-top、padding-bottom、margin-top、margin-bottom无效。
+>
+> 常见的块级元素：div、p、h、ul、li、form...等
+>
+> 常见的行内元素：a、img、span、li、em、strong...等
+
+#### 12.说一下对web标准和w3c标准的理解？
+
+> web标准主要分为结构、表现、行为3部分
+>
+> 结构：指我们平时在body里面写的标签，主要由HTML标签组成
+>
+> 表现：指更加丰富的HTML标签样式，主要由css组成
+>
+> 行为：指页面和用户的交互，主要由js部分组成
+>
+> w3c：对web标准提出了规范化的要求，即代码规范
+>
+> 对结构的要求 
+>
+> 1、标签字母要小写 
+>
+> 2、标签要闭合
+>
+>  3、标签不允许随意嵌套 
+>
+> 对表现和行为的要求 
+>
+> 1、建议使用外链CSS和js脚本，实现结构与表现分离、结构与行为分离， 能提高页面的渲染效率，更快地显示网页内容
+
+#### 13.说一下HTML5的新增表单元素？
+
+> HTML5拥有若干涉及表单的`元素`
+>
+> - detailist：元素规定输入域的选项列表
+> - keygen：提供一种验证用户的可靠方法
+> - output：output元素用于不同类型的输出
+>
+> 说明：
+>
+> - 若想要把`datalist`绑定到某个文本框，需要设置该文本框的`list`属性值等于`datalist`的id的值。
+> - `output`元素是一个行内元素，比`span`元素更具有语义化。
+>
+> 表单type`属性`（验证型）
+>
+> | 属性值 |   说明   |
+> | :----: | :------: |
+> | email  | 邮件类型 |
+> |  tel   | 电话号码 |
+> |  url   | url类型  |
+>
+> 表单新增type'属性'（取值型）
+>
+> | 属性   | 说明                 |
+> | ------ | -------------------- |
+> | range  | 取数字(滑块方式)     |
+> | number | 取数字(微调方式)     |
+> | color  | 取颜色               |
+> | date   | 取日期(如2018-11-11) |
+> | month  | 取月份               |
+> | week   | 取周数               |
+> | time   | 取时间(如08:04)      |
+>
+
+#### 14.说一下readonly和disabled的区别？
+
+> 相同点：都能使用户不能修改表单的内容
+>
+> 不同点：
+>
+> 1. readonly只对input、textarea有效，但是disabled对所有的表单元素都有效，包括radio、checkbox
+> 2. readonly可以获取到焦点，只是不能修改。disabled设置的文本框无法获取焦点
+> 3. 如果表单字段是disabled，则该字段不会发送（表单传值）和序列化
