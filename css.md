@@ -18,23 +18,23 @@
 > 答：（1）id选择器  #container
 >
 > 		（2）类名选择器 .wrraper-box
-> 																																						
+> 																																							
 > 		（3）标签选择器 div / p
-> 																																						
+> 																																							
 > 		（4）子选择器 div > p
-> 																																						
+> 																																							
 > 		（5）后代选择器 div p / #container p / .wrraper-box p	
-> 																																						
+> 																																							
 > 		（6）通配符选择器 * 
-> 																																						
+> 																																							
 > 		（7）伪类选择器  p:nth-child(1) / p:nth-child(2)
-> 																																						
+> 																																							
 > 		（8）伪元素选择器 div::before p::after
-> 																																						
+> 																																							
 > 		（9）兄弟选择器 span~p
-> 																																						
+> 																																							
 > 		（10）相邻选择器 span+p
-> 																																						
+> 																																							
 > 		（11）属性选择器 input[type]
 >
 > **注意：** 兄弟选择器：找到指定的元素后面的所有满足条件的兄弟元素
@@ -43,7 +43,7 @@
 
 #### 3.::before和:after中双冒号和单冒号的区别？解释一下这2个元素的作用。
 
->答：在css3中使用::双冒号代表伪元素,:单冒号代表伪类，但是在部分浏览器中也可以使用:单冒号来表示伪元素，::before代表将元素内容生成在使用标签之前。伪类一般匹配的是元素的特殊状态，如hover,visited,link等；伪元素一般匹配的是元素的特殊位置, 如::after, ::before等。
+>答：在css3中使用::双冒号代表伪元素,:单冒号代表伪类，但是在部分浏览器中也可以使用:单冒号来表示伪元素，::before代表将元素内容生成在使用标签之前。`伪类一般匹配的是元素的特殊状态，如hover,visited,link等；伪元素一般匹配的是元素的特殊位置, 如::after, ::before等`。
 >
 >- ::before就是以一个子元素的存在，定义在元素主体内容之前的一个伪元素。并不存在于dom之中，只存在在页面之中。
 >- :before 和 :after 这两个伪元素，是在CSS2.1里新出现的。起初，伪元素的前缀使用的是单冒号语法，但随着Web的进化，在CSS3的规范里，伪元素的语法被修改成使用双冒号，成为::before ::after
@@ -71,9 +71,9 @@
 > 答：内联选择器 1，0，0，0
 >
 > 		ID选择器 0，1，0，0
-> 																																						
+> 																																							
 > 		类名选择器/属性选择器/伪类选择器 0，0，1，0
-> 																																						
+> 																																							
 > 		标签选择器/伪元素选择器 0，0，0，1
 >
 > 其中！important!important（权重），它没有特殊性值，但它的优先级是最高的，为了方便记忆，可以认为它的特殊性值为1,0,0,0,0。
@@ -188,7 +188,7 @@
 > - 通过`visibility：hidden`隐藏元素
 > - 改变`border-style`
 > - `border-radius`、`box-shadow`
-> - `outline`
+> - `outline`相关属性
 
 #### 13.display:none 和 visibility：hidden的区别？
 
@@ -266,8 +266,8 @@
 > ```css
 > {
 >  word-break: break-all; // 当文本内容为纯数字时需要加上这句属性
->  overflow: hidden;
->  text-overflow: ellipsis;
+>  overflow: hidden;  // 溢出文字隐藏
+>  text-overflow: ellipsis; // 文本溢出换省略符号
 >  display: -webkit-box;
 >  -webkit-line-clamp: 2;
 >  -webkit-box-orient: vertical;
@@ -372,7 +372,6 @@
 > - opacity： 0 （设置元素透明度为0，元素不可见，存在在页面中）
 > - visibility：hidden （元素还存在于页面）
 > - position：absolute  z-index：999
-> - 
 
 #### 26.说一下link和@import的区别？
 
@@ -388,7 +387,7 @@
 >
 > - 内联样式（行内样式）
 > - 嵌入式
-> - 外部引入（linking）
+> - 外部引入（link）
 > - 导入样式@import
 >
 > 优先级：就近原则
