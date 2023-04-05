@@ -321,6 +321,8 @@ console.log(name1 === name2) // 结果打印：true
 
 ![image-20230221170240186](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20230221170240186.png)
 
+> 此处我们来测试一下.then方法的调用会返回一个什么样的数据？通过结果接收和打印，发现then方法的返回结果就是一个promise对象，其中该对象的状态`PromiseState`和结果`PromiseResult`是由两个回调函数的调用有关，即data箭头函数或err箭头函数决定。
+
 那么，then()方法的返回值是什么呢？代码原封不动时，控制台打印结果如下：
 
 ![image-20230221170756425](C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20230221170756425.png)
