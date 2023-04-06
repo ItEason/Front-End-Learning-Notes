@@ -407,7 +407,7 @@ let arr = new Set([1, 2, 3, 4, 5, 6]);
 s.add('a');
 arr.add(7);
 
-// 2.delete()方法，用于删除Set集合中的数据
+// 2.delete()方法，用于删除Set集合中的数据，返回的是新的set集合
 s.delete('a');
 arr.delete(7);
 
@@ -418,6 +418,9 @@ arr.has(1); // true
 // 4.size，用于输出Set集合个数（可理解成长度）
 arr.size 
 // 打印输出：6
+
+// 5.clear，用于清空Set集合
+arr.clear()	
 ```
 
 因为Set集合实现了iterator接口，使用for...of...可以遍历集合
@@ -469,7 +472,7 @@ for(let [key, value] of map) {
     console.log(key + '->' + value);
 }
 
-// 直接输出键值对数据
+// 直接输出以数组为形式的键值对数据，其中arr[0]为key,arr[1]为value
 for(let m of map) {
     ....
 }
@@ -490,9 +493,12 @@ for(let m of map) {
                 this.name = name;
                 this.age = age;
                 this.sex = sex;
-                console.log('我被执行了...')
+                console.log('我被执行了...');
             }
-
+            // 注意：方法的定义必须使用这种语法，不能使用say:function() {} 的形式
+			say() {
+                console.log("我可以说你好");
+            }
         }
 
         let person = new Person('eason', 21, 'male');
