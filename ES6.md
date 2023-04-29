@@ -68,7 +68,7 @@ let name = 'zs'
 
    ```javascript
    const name;
-   // 控制台打印：Uncaught SyntaxError: Missing initializer in const declaration 
+   // 控制台打印：Uncaught SyntaxError: Missing initializer in const declaration
    ```
 
    
@@ -78,7 +78,7 @@ let name = 'zs'
    ```javascript
    const name = 'zs'
    name = 'ls';
-   // 控制台打印：let和const.html:47 Uncaught TypeError: Assignment to constant variable.
+   // 控制台打印：Uncaught TypeError: Assignment to constant variable.
    ```
 
    
@@ -94,7 +94,7 @@ let name = 'zs'
 
 4. 不存在变量提升
 
-   > 注意：let变量是允许声明变量名不不赋值的，const变量是不允许的，必须声明且初始化变量。
+   > 注意：let变量允许声明变量名不赋值，const变量是不允许的，必须声明且初始化变量。
 
 #### 变量解构赋值
 
@@ -140,11 +140,9 @@ const str = `<ul>
 			</ul>`
 ```
 
-![image-20230218161200957](D:\desktop\image-20230218161200957.png)
-
 #### 箭头函数
 
-1. this是静态的，this通过继承外部函数环境中的变量获取，不能通过apply、bind、call方法修改指向
+1. this是静态的，this通过继承外部函数环境中的变量获取，不能通过apply、bind、call方法修改指向。
 
 ```javascript
 		function getName1() {
@@ -164,7 +162,7 @@ const str = `<ul>
 		getName2.call({name: 'eason'}); //global
 ```
 
-2.不能使用new命令，没有constructor方法，不能够用作构造函数
+2.不能使用new命令，没有constructor方法，不能够用作构造函数。
 
 ```javascript
 		let person = (name, age) => {
@@ -175,7 +173,7 @@ const str = `<ul>
         console.log(m); // Uncaught TypeError: person is not a constructor
 ```
 
-3.不能使用arguments变量，可以使用...rest进行参数接收
+3.不能使用arguments变量，可以使用...rest进行参数接收。
 
 ```javascript
 		function getInfo(name, age, sex) {
@@ -195,7 +193,7 @@ const str = `<ul>
         fn('eason', 21, 'male'); // ['eason', 21, 'male']
 ```
 
-4. 不能使用 yield 命令，没有prototype原型
+4. 不能使用 yield 命令，没有prototype原型。
 
    箭头函数的应用
 
@@ -248,7 +246,7 @@ console.log(s1 === s2) // 结果打印：false
 
 let name1 = Symbol("eason");
 let name2 = Symbol("eason");
-console.log(name1 === name2) // 结果打印：true
+console.log(name1 === name2) // 结果打印：false
 ```
 2. 不能与其他数据类型进行运算
 
