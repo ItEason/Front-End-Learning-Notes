@@ -303,3 +303,19 @@ outer(); // 返回结果为10；
 > ES5继承是`通过prototype或者构造函数机制实现`。ES5继承实质上是`先创建子类的实例对象`，然后再将父类的方法添加到this上（Parent.apply(this))。
 >
 > ES6的继承机制实质上是`先创建父类的实例对象this`（所以必须先调用父类的super()方法，然后再用子类的构造函数修改this)
+
+#### 33.说一下Map和Object的区别？
+
+> 相同点：都是使用键值对的形式来存储数据。
+>
+> 不同点：
+>
+> - 在Object中，key必须是<font color=red>简单数据类型</font>（整数、字符串或者symbol），而在Map中则可以是JavaScript支持的<font color=red>所有数据类型</font>，也就是说可以用一个object来当做一个Map元素的key。
+> - Map元素的顺序遵循插入的顺序，而Object没有这一特征。
+> - Map继承自Object对象。
+
+#### 34.说一下Map和Set的区别？
+
+> 相同点：可以存储不重复的值。
+>
+> 不同点：集合是以[value, value]的形式存储元素，Map是以[key,value]的形式存储。

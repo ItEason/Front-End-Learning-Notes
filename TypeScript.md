@@ -407,3 +407,9 @@ let K_value3: string = bar; // Error
 > - void表示没有任何数据类型（可以赋值为null或undefined）
 > - never表示一个不包含值的类型，即永远不存在返回值
 > - 拥有void返回值类型的函数能正常运行。拥有 never 返回值类型的函数无法正常返回，无法终止，或会抛出异常。
+
+#### 4.type和interface的区别？
+
+> type是类型的别名，可以用于基本类或基本类型的联合类型，也可以定义对象类型
+>
+> 接口interface只能用于定义对象类型
