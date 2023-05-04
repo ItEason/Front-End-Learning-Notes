@@ -6,7 +6,9 @@
 >
 > 基本数据类型和引用数据类型的区别是：存储方式的不同，基本数据类型的存储在栈内存中，而引用数据类型的存储在堆内存中，栈内存存储的是堆内存指针起始地址。
 
-#### 2.说一下javascript有几种判断数据类型的方法？
+
+
+#### S2.说一下javascript有几种判断数据类型的方法？
 
 > 1. typeof：判断基本数据类型，引用数据类型只能判断function；
 > 2. instanceof：主要用于引用数据类型的判断，是根据原型链进行判断的，输出的是true or false；
@@ -319,3 +321,61 @@ outer(); // 返回结果为10；
 > 相同点：可以存储不重复的值。
 >
 > 不同点：集合是以[value, value]的形式存储元素，Map是以[key,value]的形式存储。
+
+#### 35.说一下字面量创建的对象和new创建出来的对象有什么区别？
+
+字面量
+
+> - 字面量创建对象简单，方便阅读
+> - 不需要作用域解析，速度更快
+
+new内部
+
+> - 创建一个新对象
+> - 使新对象的`__proto__`指向原函数的`prototype`
+> - 改变this指向（指向新的obj）并执行该函数，执行结果保存起来作为result
+> - 判断执行函数的结果是不是null或Undefined，如果是则返回之前的新对象，如果不是则返回result
+
+```ts
+// 手撕new
+function myNew() {
+    // 1. 创建一个新的对象
+    let obj = {};
+    // 获取构造函数
+    let con = [].shift.call(arguments);
+    //2.新对象的隐式原型__proto__链接到构造函数的显式原型prototype
+    let obj.__proto__ = con.prototype;
+    //3.构造函数内部的 this 绑定到这个新创建的对象 执行构造函数
+    let result = con.apply(obj, arguments);
+     //4.如果构造函数没有返回非空对象，则返回创建的新对象
+    return result instancof Object ? result : obj;
+}
+```
+
+#### 36.说一下`NaN===NaN`返回什么？
+
+> 返回`false`，`NaN`永远不等于`NaN`，判断是否为`NaN`用一个函数`isNaN`来判断；
+>
+> `isNaN`传入的如果是其他数据类型，那么现将它使用`Number()`转为数字类型在进行判断。
+
+#### 37.说一下JOSN.stringfy的应用场景？
+
+> JSON.stringify()序列化对象的方法：
+>
+> 参数一被序列化的对象（或数组）
+>
+> 参数二要序列化的属性（可以是方法）
+>
+> 参数三序列化后的缩进字符数（美化格式）
+>
+> 
+>
+> 1. localStorage浏览器本地存储
+>
+> > 因为localStorage存储是以K，V的形式存储的，当我们在业务开发中，想将object对象数据存储到localStorage时，是无法存储的，此时可以使用JSON.stringfy将object序列化后再进行存储既可。
+>
+> 2. 深拷贝
+>
+> > 使用JSON.parse(JSON.stringfy())的方式可以将引用数据类型进行拷贝，也就是我们常说的深拷贝。
+>
+> 3. 删除对象属性
