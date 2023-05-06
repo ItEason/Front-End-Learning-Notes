@@ -2,7 +2,7 @@
 
 #### 1.什么是TypeScript，为什么使用它？
 
-> TypeScript是一种静态类型的面向对象的编程语言，它是JavaScript框架之一，它添加了可选的静态类型和其他功能，由Microsoft开发和维护。
+> TypeScript是一种静态类型的面向对象的编程语言，它是JavaScript框架之一，它添加了可选的静态类型和其他功能。
 >
 > TypeScript可以让代码更容易维护和扩展，并提供更好的工具和编辑器支持。
 

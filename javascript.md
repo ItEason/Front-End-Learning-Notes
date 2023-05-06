@@ -330,3 +330,25 @@ outer(); // 返回结果为10；
 > - 使新对象的`__proto__`指向原函数的`prototype`
 > - 改变this指向（指向新的obj）并执行该函数，执行结果保存起来作为result
 > - 判断执行函数的结果是不是null或Undefined，如果是则返回之前的新对象，如果不是则返回result
+
+```js
+// 手撕new
+function myNew() {
+    // 1. 创建一个新的对象
+    let obj = {};
+    // 获取构造函数
+    let con = [].shift.call(arguments);
+    //2.新对象的隐式原型__proto__链接到构造函数的显式原型prototype
+    let obj.__proto__ = con.prototype;
+    //3.构造函数内部的 this 绑定到这个新创建的对象 执行构造函数
+    let result = con.apply(obj, arguments);
+     //4.如果构造函数没有返回非空对象，则返回创建的新对象
+    return result instancof Object ? result : obj;
+}
+```
+
+#### 36.说一下`NaN===NaN`返回什么？
+
+> 返回`false`，`NaN`永远不等于`NaN`，判断是否为`NaN`用一个函数`isNaN`来判断；
+>
+> `isNaN`传入的如果是其他数据类型，那么现将它使用`Number()`转为数字类型在进行判断。
