@@ -362,10 +362,31 @@
 #### 3.说一下Vue2和Vue3的区别？
 
 > 1. 双向数据绑定的方式不同（响应式原理不同）
+>
+>    （`Vue3`使用的是`Proxy`,`Vue2`使用的是definePropety）
+>
 > 2. 根节点数量不同
+>
+>    (`Vue3`允许有多个根节点,`Vue2`有且仅有一个根节点)
+>
 > 3. vue3增加了composition API
+>
 > 4. 生命周期不同
+>
+>    （`beforeDestroy` -> `unmount`， `detroyed` -> `unmouted`）
+>
 > 5. 全局定义变量的方式不同
+>
+>    (`vue2:vue.prototype.xxx`，`vue3：vue.config.globalPropotities`)
+>
 > 6. v-if和v-for的优先级不同
+>
+>    (`vue2中v-if优先级高于v-for`, `vue3中v-if优先级低于v-for`)
+>
 > 7. 创建vue实例的方式不同
+>
+>    (`vue2:`import Vue from 'vue', `vue3：`import {createApp} from 'vue');
+>
+>    注意：`引入的不再是Vue构造函数，引入的是一个名为createApp的工厂函数`
+>
 > 8. 插槽的写法不同
